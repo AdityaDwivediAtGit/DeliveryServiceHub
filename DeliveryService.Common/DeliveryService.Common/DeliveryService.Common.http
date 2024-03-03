@@ -1,0 +1,6 @@
+@DeliveryService.Common_HostAddress = http://localhost:5038
+
+GET {{DeliveryService.Common_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

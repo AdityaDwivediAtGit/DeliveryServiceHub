@@ -1,0 +1,83 @@
+name: dockercompose5129893277423663961
+services:
+  commondb_service:
+    container_name: common-mssql-server
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Password@123
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    networks:
+      backend: null
+    ports:
+      - mode: ingress
+        target: 1433
+        published: "1434"
+        protocol: tcp
+  deliveryservice.common:
+    build:
+      context: A:\Ideationals\DeliveryService.Common
+      dockerfile: DeliveryService.Common/Dockerfile
+    container_name: common-api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ASPNETCORE_HTTPS_PORTS: "8081"
+      DB_HOST: commondb_service
+      DB_NAME: DeliveryCommon_DB
+      DB_SA_PASSWORD: Password@123
+    image: deliveryservicecommon
+    networks:
+      backend: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "8002"
+        protocol: tcp
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\ADITYA\AppData\Roaming/Microsoft/UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\ADITYA\AppData\Roaming/ASP.NET/Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+  deliveryservice.porter:
+    build:
+      context: A:\Ideationals\DeliveryService.Common
+      dockerfile: DeliveryService.Porter/Dockerfile
+    container_name: porter-api
+    image: deliveryserviceporter
+    networks:
+      backend: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "8003"
+        protocol: tcp
+  deliveryservice.shiprocket:
+    build:
+      context: A:\Ideationals\DeliveryService.Common
+      dockerfile: DeliveryService.ShipRocket/Dockerfile
+    container_name: shiprocket-api
+    image: deliveryserviceshiprocket
+    networks:
+      backend: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "8009"
+        protocol: tcp
+networks:
+  backend:
+    name: dockercompose5129893277423663961_backend

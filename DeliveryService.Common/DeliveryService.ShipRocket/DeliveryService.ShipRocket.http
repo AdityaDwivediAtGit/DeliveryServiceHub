@@ -1,0 +1,6 @@
+@DeliveryService.ShipRocket_HostAddress = http://localhost:5261
+
+GET {{DeliveryService.ShipRocket_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,6 @@
+A:\Ideationals\DeliveryService.Common\DeliveryService.SQLServerDB\bin\Debug\DeliveryService.SQLServerDB.dacpac
+A:\Ideationals\DeliveryService.Common\DeliveryService.SQLServerDB\bin\Debug\DeliveryService.SQLServerDB.dll
+A:\Ideationals\DeliveryService.Common\DeliveryService.SQLServerDB\bin\Debug\DeliveryService.SQLServerDB.pdb
+A:\Ideationals\DeliveryService.Common\DeliveryService.SQLServerDB\obj\Debug\DeliveryService.SQLServerDB.sqlproj.AssemblyReference.cache
+A:\Ideationals\DeliveryService.Common\DeliveryService.SQLServerDB\obj\Debug\DeliveryService.SQLServerDB.dll
+A:\Ideationals\DeliveryService.Common\DeliveryService.SQLServerDB\obj\Debug\DeliveryService.SQLServerDB.pdb

@@ -1,0 +1,13 @@
+26-02-2024 01:08:31 PM	This log contains information about the import operation of the script 'Generated Script for data extraction.sql' into project 'DeliveryService.SQLServerDB' on computer 'DESKTOP-S0ERLT1' by user'ADITYA.
+26-02-2024 01:08:31 PM	Started importing file: C:\Users\ADITYA\Documents\SQL Server Management Studio\Delivery Common DB\Generated Script for data extraction.sql 
+26-02-2024 01:08:31 PM	File name C:\Users\ADITYA\Documents\SQL Server Management Studio\Delivery Common DB\Generated Script for data extraction.sql (size: 11576)
+26-02-2024 01:08:31 PM	Parsing import script
+26-02-2024 01:08:32 PM	Total number of batches in script: 43
+26-02-2024 01:08:32 PM	Total number of statements in script: 16
+26-02-2024 01:08:32 PM	The script was successfully imported into the project.
+26-02-2024 01:08:32 PM	Analyzing schema objects...
+26-02-2024 01:08:32 PM	Scanning project for duplicate elements
+26-02-2024 01:08:32 PM	Finished duplicate element processing
+26-02-2024 01:08:34 PM	In the script that you provided to the import operation, one or more statements were not fully understood. These statements were moved to the ScriptsIgnoredOnImport.sql file. Review the file contents for additional information.
+26-02-2024 01:08:34 PM	A summary of the import was saved to the following location: A:\Ideationals\DeliveryService.Common\DeliveryService.SQLServerDB\Import Script Logs\Generated Script for_20240226073831.log
+26-02-2024 01:08:34 PM	Click Finish to continue...

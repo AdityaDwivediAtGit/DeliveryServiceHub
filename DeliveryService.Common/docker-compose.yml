@@ -1,0 +1,57 @@
+version: '3.4'
+
+networks:
+  backend:
+
+services:
+  commondb_service:
+    container_name: common-mssql-server
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Password@123
+    networks:
+      - backend
+    ports:
+      - 1434:1433
+
+  deliveryservice.common:
+    container_name: common-api
+    image: ${DOCKER_REGISTRY-}deliveryservicecommon
+    build:
+      context: .
+      dockerfile: DeliveryService.Common/Dockerfile
+    networks:
+      - backend
+    environment:
+      - DB_HOST=commondb_service
+      - DB_NAME=DeliveryCommon_DB
+      - DB_SA_PASSWORD=Password@123
+    ports:
+      - 8002:80
+
+  deliveryservice.porter:
+    container_name: porter-api
+    image: ${DOCKER_REGISTRY-}deliveryserviceporter
+    build:
+      context: .
+      dockerfile: DeliveryService.Porter/Dockerfile
+    networks:
+      - backend
+    ports:
+      - 8003:80
+      - 8004:8080
+      - 8005:8081
+
+  deliveryservice.shiprocket:
+    container_name: shiprocket-api
+    image: ${DOCKER_REGISTRY-}deliveryserviceshiprocket
+    build:
+      context: .
+      dockerfile: DeliveryService.ShipRocket/Dockerfile
+    networks:
+      - backend
+    ports:
+      - 8006:80
+      - 8007:8080
+      - 8008:8081
